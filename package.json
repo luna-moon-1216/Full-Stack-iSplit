@@ -1,0 +1,43 @@
+{
+  "name": "Full-Stack-iSplit",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "react-dev": "webpack -w",
+    "server-dev": "nodemon server/index.js",
+    "build": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luna-moon-1216/Full-Stack-iSplit.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luna-moon-1216/Full-Stack-iSplit/issues"
+  },
+  "homepage": "https://github.com/luna-moon-1216/Full-Stack-iSplit#readme",
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.4.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "file-loader": "^6.2.0",
+    "nodemon": "^2.0.13",
+    "style-loader": "^3.3.0",
+    "webpack": "^5.58.1",
+    "webpack-cli": "^4.9.0"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
