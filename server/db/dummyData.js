@@ -1,5 +1,4 @@
-const groups = {
-  [
+const groups = [
     {
       id: 1,
       name: 'Sunday Brunch',
@@ -80,8 +79,7 @@ const groups = {
         }
       ]
     }
-  ]
-};
+  ];
 
 const transactions1 = [
   {

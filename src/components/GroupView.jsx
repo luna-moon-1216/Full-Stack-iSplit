@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const GroupView = () => {
+const GroupView = ({currentGroup}) => {
   return (
     <div className="groupViewContainer">
       <div className="container1">
@@ -16,7 +16,13 @@ const GroupView = () => {
         <div id="transactions">Transactions</div>
         <div id="members">Members</div>
       </div>
-      <div className="container3"></div>
+      <div className="container3">
+        {currentGroup.members && currentGroup.members.map((member) => {
+          return(
+            <li key={member.id} className="groupMember">{member.first_name}, {member.last_name}</li>
+          )
+        })}
+      </div>
     </div>
   );
 };
