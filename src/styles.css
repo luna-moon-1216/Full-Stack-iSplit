@@ -53,12 +53,14 @@
 
 .container1 {
   margin-top:10px;
-  border: 1px solid black
+  border: 1px solid black;
+  display:flex
 }
 
 .user {
   border: 1px solid black;
   height: 400px;
+  flex-basis:50%;
 }
 
 #avartar {
@@ -70,6 +72,7 @@
 
 .group {
   border: 1px solid black;
+  flex-basis:50%;
 }
 
 .container2 {
@@ -84,6 +87,15 @@
   border: 1px solid black;
 }
 
+.eachDebt {
+  display: flex;
+}
+
+.borrower, .arrow, .lender {
+  flex-basis: 33%;
+  text-align: center;
+}
+
 #transactions, #members {
   flex-basis: 50%;
   text-align: center;
@@ -96,4 +108,35 @@
   padding: 10px 5px;
 }
 
+/*---------------------------------------------Modal Styling-------------------------------------------*/
 
+.modalContainer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalContent {
+  width: 500px;
+  background-color: #fff;
+}
+
+.modalHeader, .modalFooter {
+  padding: 10px;
+}
+
+.modalTitle {
+  margin: 0;
+}
+
+.modalBody {
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
