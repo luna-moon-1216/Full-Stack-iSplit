@@ -18,12 +18,15 @@ const GroupView = ({ currentGroup, allTransactions }) => {
             src={currentGroup.picture}
             id="avartar"
           />
-          <div className="amount"></div>
+          <div className="amount">
+            <div>You owe 0 dollars</div>
+            <div>You are owed 0 dollars</div>
+          </div>
         </div>
         <div className="group">
-          <div>{currentGroup.name}</div>
-          <div>{allTransactions.length} transactions in this group</div>
-          <div>{currentGroup.members ? currentGroup.members.length : 0} members in this group</div>
+          <div id="groupName">{currentGroup.name}</div>
+          <div id="countTransactions">{allTransactions.length} transactions in this group</div>
+          <div id="countMembers">{currentGroup.members ? currentGroup.members.length : 0} members in this group</div>
           <button id="settleUp">Settle Up</button>
         </div>
       </div>

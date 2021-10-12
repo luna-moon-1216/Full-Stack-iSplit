@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFileInvoiceDollar } from '@fortawesome/free-solid-svg-icons';
 
-const AddExpense = ({showModal, handleModal}) => {
-  if(showModal) {
+const AddExpense = ({showExpenseModal, handleModal, handlePayorSelection, payor}) => {
+
+  if(showExpenseModal) {
     return (
       <div className="modalContainer">
         <div className="modalContent">
@@ -17,9 +20,20 @@ const AddExpense = ({showModal, handleModal}) => {
               </label>
             </form>
             <div className="detailContainer">
-              <img src="" />
+              <FontAwesomeIcon className="receipt" icon={faFileInvoiceDollar} size="7x" />
               <div className="detailContainer2">
-             </div>
+                <input placeholder="Enter a description"></input>
+                <label>
+                  $
+                  <input placeholder="0.00"></input>
+                </label>
+              </div>
+            </div>
+            <div className="splitDetail">
+              Paid by
+              <a className="payer" onClick={(e) => {handlePayorSelection(e)}}> {payor} </a>
+              and split
+              <a className="split"> Equally</a>
             </div>
           </div>
           <div className="modalFooter">
