@@ -10,33 +10,41 @@ body {
   /* color:white; */
   border-bottom: 1px solid grey;
   display: flex;
-  height: 50px;
-  background-color: #61892F;
+  height: 60px;
+  background-color: #BC4639;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+dialog {
+  top: 0;
+  right: 0;
 }
 
 .logo {
-  flex-basis: 45%;
+  flex-basis: 50%;
 }
 
 .userInfo {
-  flex-basis: 45%;
-  align-self: flex-end;
+  flex-basis: 50%;
+  align-self: center;
+  text-align: right;
+  margin-right: 20px;
+  font-size: 16px;
 }
 
 .mainContainer {
   margin-top: 20px;
   height: 1300px;
-  border: 1px solid black;
   display: flex;
   justify-content: center;
 }
 
 .groupListContainer {
   margin-top: 20px;
-  border: 1px solid black;
   flex-basis: 30%;
   margin-right: 5%;
-  height: 1250px;
+  height: 1300px;
   display: flex;
   flex-direction: column;
 }
@@ -44,7 +52,7 @@ body {
 .buttonContainer {
   margin-top: 20px;
   border: 1px solid black;
-  flex-basis: 40%;
+  flex-basis: 20%;
 }
 
 #createGroup, #createExpense {
@@ -52,11 +60,15 @@ body {
   margin: auto;
   margin-top: 30px;
   padding: 10px 5px;
-  width: 120px;
+  width: 180px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: solid #BC4639;
+  background-color: #F7F9FB;
+  color: #BC4639;
 }
 
 .groupList {
-  border: 1px solid black;
   margin-top: 50px;
   padding-top: 10px;
   flex-basis: 60%;
@@ -66,11 +78,13 @@ body {
 
 .groupViewContainer {
   margin-top: 20px;
-  border: 1px solid black;
   flex-basis: 60%;
   display: flex;
   flex-direction: column;
-  height: 1250px;
+  height: 1300px;
+}
+#list{
+  font-size: 24px;
 }
 
 .group {
@@ -78,9 +92,52 @@ body {
   flex-direction: column;
 }
 
+.groupName {
+  font-size: 16px;
+  margin-top:10px
+}
+
+#groupContainer1 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  flex-basis: 50%;
+  align-self: center;
+  justify-content: center;
+  font-size: 18px;
+}
+
+#groupName, #countTransactions, #countMembers {
+  margin: 10px;
+  font-size:24px;
+  text-align: center;
+}
+
+#groupName {
+  font-size: 32px;
+  font-weight: bolder;
+}
+
+.owe {
+  font-size: 18px;
+}
+
+#settleUp {
+  align-self: center;
+  width: 180px;
+  height: 44px;
+  padding: 10px 5px;
+  font-size: 16px;
+  border: solid #BC4639;
+  background-color: #F7F9FB;
+  color: #BC4639;
+  border-radius: 5px;
+  margin:auto;
+}
+
 .container1 {
   margin-top:10px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display:flex
 }
 
@@ -110,24 +167,25 @@ body {
 }
 
 .group {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   flex-basis:50%;
 }
 
 .container2 {
   margin-top:10px;
   border: 1px solid black;
-  height: 30px;
+  height: 50px;
   display: flex;
 }
 
 .container3 {
   margin-top:10px;
-  border: 1px solid black;
 }
 
 .eachDebt {
   display: flex;
+  margin: 10px;
+  border-bottom: 1px solid #BC4639;
 }
 
 .borrower, .arrow, .lender {
@@ -135,9 +193,24 @@ body {
   text-align: center;
 }
 
-#transactions, #members {
+#transactions, #members, #Debts {
+  padding-top: 6px;
   flex-basis: 50%;
   text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.groupMember {
+  list-style-type: square;
+  text-align: center;
+  margin: 15px;
+  font-size: 24px;
+}
+
+.groupMember:hover {
+  color: #BC4639;
+  cursor: pointer;
 }
 
 
@@ -164,10 +237,11 @@ body {
 }
 
 .modalContent {
-  border-radius: 5px;
+  border-radius: 8px;
+  border: solid #BC4639;
 }
 
-#payorModal {
+#payorModal, #splitModal {
   left: 950px;
   background-color: transparent;
 }
@@ -188,8 +262,8 @@ body {
 
 .modalBody {
   padding: 10px;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+  border-top: 1px solid #BC4639;
+  border-bottom: 1px solid #BC4639;
 }
 
 .detailContainer {
@@ -206,4 +280,52 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+#addMember {
+ width: 210px;
+}
+
+#addDescription, #addAmount {
+  height: 30px;
+  margin-top: 15px;
+  border:none;
+  border-bottom: 1px solid grey;
+}
+
+.splitDetail {
+  margin-top: 10px;
+}
+
+.payor, .split {
+  font-weight: bold;
+}
+
+#modalBody li:hover {
+  cursor: pointer;
+
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+}
+
+.options {
+  margin-bottom: 5px;
+  margin-left: 5px;
+}
+
+.share {
+  border: none;
+  border-bottom: 1px solid grey;
+  margin-left: 10px;
+  width: 40px;
+}
+
+/*----------------------------------------Footer-----------------------------------------------*/
+.footer {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-around;
 }

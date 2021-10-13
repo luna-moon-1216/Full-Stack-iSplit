@@ -4,6 +4,8 @@ import GroupList from './components/GroupList.jsx';
 import GroupView from './components/GroupView.jsx';
 import AddExpense from './components/AddExpense.jsx';
 import PayorAndSplit from './components/PayorAndSplit.jsx';
+import CreateGroup from './components/CreateGroup.jsx';
+import Footer from './components/Footer.jsx';
 import dummyData from '../server/db/dummyData.js';
 console.log(dummyData)
 
@@ -14,7 +16,10 @@ const App = () => {
   const [allTransactions, setAllTransactions] = useState([]);
   const [showExpenseModal, setExpenseModal] = useState(false);
   const [showPayorModal, setPayorModal] = useState(false);
+  const [showSplitModal, setSplitModal] = useState(false);
+  const [showGroupModal, setGroupModal] = useState(false);
   const [payor, setPayor] = useState('You');
+  const [split, setSplit] = useState('equally');
 
   useEffect(() => {
     setGroups(dummyData.groups);
@@ -42,17 +47,32 @@ const App = () => {
     }
   };
 
+  const handleSplitSelection = (e, split) => {
+    e.preventDefault();
+    setSplitModal(!showSplitModal);
+    if(split) {
+      setSplit(split);
+    }
+  };
+
+  const handleShowGroup = (e) => {
+    e.preventDefault();
+    setGroupModal(!showGroupModal);
+  }
+
   return (
     <div className="parentContainer">
       <Banner />
       <div className="mainContainer">
-        <GroupList groups={groups} handleGroupSelection={handleGroupSelection} handleModal={handleModal} />
+        <GroupList groups={groups} handleGroupSelection={handleGroupSelection} handleModal={handleModal} handleShowGroup={handleShowGroup} />
         <GroupView currentGroup={currentGroup} allTransactions={allTransactions} />
+        <CreateGroup handleShowGroup={handleShowGroup} showGroupModal={showGroupModal} />
       </div>
       <div className="relativeContainer">
-        <AddExpense showExpenseModal={showExpenseModal} handleModal={handleModal} handlePayorSelection={handlePayorSelection} payor={payor} />
-        <PayorAndSplit showPayorModal={showPayorModal} currentGroup={currentGroup} handlePayorSelection={handlePayorSelection} />
+        <AddExpense showExpenseModal={showExpenseModal} handleModal={handleModal} handlePayorSelection={handlePayorSelection} payor={payor} handleSplitSelection={handleSplitSelection} split={split} />
+        <PayorAndSplit showPayorModal={showPayorModal} currentGroup={currentGroup} handlePayorSelection={handlePayorSelection} showSplitModal={showSplitModal} handleSplitSelection={handleSplitSelection} />
       </div>
+      <Footer />
     </div>
   );
 };

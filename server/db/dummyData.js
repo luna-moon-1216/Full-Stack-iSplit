@@ -118,6 +118,41 @@ const groups = [
       },
     ],
   },
+
+  {
+    id: 3,
+    name: "Hack Reactor Tuition"
+  },
+
+  {
+    id: 4,
+    name: "Central Park Picnic"
+  },
+
+  {
+    id: 5,
+    name: "edc Las Vegas"
+  },
+
+  {
+    id: 6,
+    name: "Graduation Trip"
+  },
+
+  {
+    id: 7,
+    name: "Wine Shopping"
+  },
+
+  {
+    id: 8,
+    name: "Broadway Shows"
+  },
+
+  {
+    id: 9,
+    name: "Netflix Subscription"
+  }
 ];
 
 const transactions1 = [
@@ -169,7 +204,7 @@ const transactions2 = [
     id: 1114,
     cost: 266,
     group_id: 2,
-    description: "Halloween candies",
+    description: "Halloween candy",
     updated_at: "08/30/2021 01:41:35 AM",
     payor: [
       {
