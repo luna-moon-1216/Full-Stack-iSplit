@@ -4,6 +4,8 @@ dist/*
 !dist/index.html
 node_modules/
 *.log
+config.js
+dbConfig.js
 
 # OS generated files
 .DS_Store

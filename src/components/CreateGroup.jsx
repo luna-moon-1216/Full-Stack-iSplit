@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 
 const speak = (msg) => {
@@ -14,12 +15,25 @@ const CreateGroup = ({handleShowGroup, showGroupModal}) => {
   const handleCreateGroup = (e) => {
     e.preventDefault();
     createGroup(e.target.value);
+
   };
 
-  const handleAnouncement = (e) => {
-    e.preventDefault();
-    setTimeout(speak(group + ' group has been successfully created'), 3000);
+  // const handleAnouncement = (e) => {
+  //   e.preventDefault();
+  //   setTimeout(speak(group + ' group has been successfully created'), 3000);
 
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post('/groups', {name: group, picture: ''})
+    .then((res) => {
+      console.log(res);
+      createGroup('');
+    })
+    .catch((err) => {
+      console.log(err);
+    })
   };
 
   return (showGroupModal &&
@@ -32,7 +46,7 @@ const CreateGroup = ({handleShowGroup, showGroupModal}) => {
           <input placeholder="Group name" value={group} onChange={handleCreateGroup}></input>
         </div>
         <div className="modalFooter" id="groupFooter">
-          <button id="modalCreateGroup" onClick={handleAnouncement}>Create group</button>
+          <button id="modalCreateGroup" onClick={handleSubmit}>Create group</button>
           <button id="exitGroup" onClick={(e) => {handleShowGroup(e)}}>Exit</button>
         </div>
       </div>
