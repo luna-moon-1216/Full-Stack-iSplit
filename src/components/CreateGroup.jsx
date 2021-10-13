@@ -31,9 +31,9 @@ const CreateGroup = ({handleShowGroup, showGroupModal}) => {
         <div className="modalBody">
           <input placeholder="Group name" value={group} onChange={handleCreateGroup}></input>
         </div>
-        <div className="modalFooter">
-          <button onClick={handleAnouncement}>Create group</button>
-          <button onClick={(e) => {handleShowGroup(e)}}>X</button>
+        <div className="modalFooter" id="groupFooter">
+          <button id="modalCreateGroup" onClick={handleAnouncement}>Create group</button>
+          <button id="exitGroup" onClick={(e) => {handleShowGroup(e)}}>Exit</button>
         </div>
       </div>
     </div>

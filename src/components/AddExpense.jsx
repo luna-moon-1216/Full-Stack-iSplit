@@ -6,11 +6,13 @@ const AddExpense = ({showExpenseModal, handleModal, handlePayorSelection, handle
 
   if(showExpenseModal) {
     return (
-      <div className="modalContainer">
+      <div id="expenseModal" className={`modalContainer ${showExpenseModal ? 'show' : ''}`}>
         <div className="modalContent">
           <div className="modalHeader">
             <h4 className="modalTitle">New Transactions</h4>
+            <div className="xContainer">
             <button id="x" onClick={(e) => {handleModal(e)}}>X</button>
+            </div>
           </div>
           <div className="modalBody">
             <form>

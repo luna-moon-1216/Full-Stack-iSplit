@@ -11,13 +11,17 @@ const Banner = () => {
 
   return (
     <div className="banner">
-      <div className="logo">iSplit</div>
-      <div className="userInfo" >
+      <div className="logo">
+        <img id="logo" src="./logo.png" />
+      </div>
+      <div className="userInfo">
         <div onClick={handleLogOut}>Sailor Moon</div>
         {showLogOut && (
           <dialog open>
-            <div>Log Out</div>
-            <div>Delete Account</div>
+            <div className="logOutContainer">
+              <div id="logOut">Log Out</div>
+              <div id="delete">Delete Account</div>
+            </div>
           </dialog>
         )}
       </div>
