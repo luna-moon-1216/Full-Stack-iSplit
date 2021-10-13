@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import LogIn from './components/LogIn.jsx';
 import Banner from './components/Banner.jsx';
 import GroupList from './components/GroupList.jsx';
 import GroupView from './components/GroupView.jsx';
@@ -7,7 +8,12 @@ import PayorAndSplit from './components/PayorAndSplit.jsx';
 import CreateGroup from './components/CreateGroup.jsx';
 import Footer from './components/Footer.jsx';
 import dummyData from '../server/db/dummyData.js';
-console.log(dummyData)
+
+import firebaseAuth from '../server/firebase/auth.js';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged} from "firebase/auth";
+
+const auth = getAuth();
+// console.log(dummyData)
 
 const App = () => {
 
@@ -20,6 +26,7 @@ const App = () => {
   const [showGroupModal, setGroupModal] = useState(false);
   const [payor, setPayor] = useState('You');
   const [split, setSplit] = useState('equally');
+  const [userStatus, setUser] = useState('');
 
   useEffect(() => {
     setGroups(dummyData.groups);
@@ -60,21 +67,40 @@ const App = () => {
     setGroupModal(!showGroupModal);
   }
 
-  return (
-    <div className="parentContainer">
-      <Banner />
-      <div className="mainContainer">
-        <GroupList groups={groups} handleGroupSelection={handleGroupSelection} handleModal={handleModal} handleShowGroup={handleShowGroup} />
-        <GroupView currentGroup={currentGroup} allTransactions={allTransactions} />
-        <CreateGroup handleShowGroup={handleShowGroup} showGroupModal={showGroupModal} />
+  const handleSignIn = (e, email, password) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      console.log(userCredential)
+      setUser(userCredential.user)
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
+  }
+
+  if(!userStatus) {
+    return(
+      <LogIn handleSignIn={handleSignIn}/>
+    )
+  } else {
+    return (
+      <div className="parentContainer">
+        <Banner />
+        <div className="mainContainer">
+          <GroupList groups={groups} handleGroupSelection={handleGroupSelection} handleModal={handleModal} handleShowGroup={handleShowGroup} />
+          <GroupView currentGroup={currentGroup} allTransactions={allTransactions} />
+          <CreateGroup handleShowGroup={handleShowGroup} showGroupModal={showGroupModal} />
+        </div>
+        <div className="relativeContainer">
+          <AddExpense showExpenseModal={showExpenseModal} handleModal={handleModal} handlePayorSelection={handlePayorSelection} payor={payor} handleSplitSelection={handleSplitSelection} split={split} />
+          <PayorAndSplit showPayorModal={showPayorModal} currentGroup={currentGroup} handlePayorSelection={handlePayorSelection} showSplitModal={showSplitModal} handleSplitSelection={handleSplitSelection} />
+        </div>
+        <Footer />
       </div>
-      <div className="relativeContainer">
-        <AddExpense showExpenseModal={showExpenseModal} handleModal={handleModal} handlePayorSelection={handlePayorSelection} payor={payor} handleSplitSelection={handleSplitSelection} split={split} />
-        <PayorAndSplit showPayorModal={showPayorModal} currentGroup={currentGroup} handlePayorSelection={handlePayorSelection} showSplitModal={showSplitModal} handleSplitSelection={handleSplitSelection} />
-      </div>
-      <Footer />
-    </div>
-  );
+    );
+  }
 };
 
 export default App;

@@ -46,6 +46,7 @@ table {
 /*----------------------------------------------------Main-----------------------------------*/
 body {
   background-color: #F7F9FB;
+  font-family: 'Montserrat', sans-serif;
 }
 .parentContainer {
   height: 1500px;
@@ -69,7 +70,7 @@ body {
 }
 
 dialog {
-  margin-right: 9px;
+  margin-right: 7px;
   border: none;
   border-radius: 3px;
 }
@@ -370,11 +371,16 @@ dialog {
 .options {
   display: flex;
   flex-direction: column;
-}
-
-.options {
   margin-bottom: 5px;
   margin-left: 5px;
+}
+
+.splitOptions li {
+  cursor: default;
+}
+
+.option {
+  margin-top: 2px;
 }
 
 .share {
@@ -387,7 +393,7 @@ dialog {
 .xContainer {
   display: flex;
   justify-content: flex-end;
-  flex-basis: 75%;
+  flex-basis: 70%;
 }
 
 #groupFooter {
@@ -401,3 +407,42 @@ dialog {
   display: flex;
   justify-content: space-around;
 }
+
+/*-----------------------------------------LogIn---------------------------------------------*/
+.logIn {
+  margin: 12% auto;
+  background-color: #f7f7f9;
+  border: 3px solid #BC4639;
+  border-radius: 5px;
+  width: 380px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+#password, #email {
+  width: 100%;
+  display: grid;
+  box-sizing: border-box;
+  margin-top: 30px;
+  height: 50px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#signInBtn {
+  margin-top: 50px;
+  font-size: 16px;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  background-color: #F7F9FB;
+  border:1px solid grey;
+  border-radius: 5px;
+}
+
+#signInBtn:hover {
+  color: #BC4639;
+}
+

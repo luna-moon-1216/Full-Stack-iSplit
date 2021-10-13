@@ -4,7 +4,7 @@ dist/*
 !dist/index.html
 node_modules/
 *.log
-config.js
+auth.js
 dbConfig.js
 
 # OS generated files

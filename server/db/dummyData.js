@@ -62,7 +62,7 @@ const groups = [
 
   {
     id: 2,
-    name: "WestView House",
+    name: "WestView New House",
     picture: "https://nestia-food.obs.ap-southeast-3.myhuaweicloud.com/202009/22/4ad34e67f99d611420529ba30f39427b.png",
     updated_at: "08/13/2021 02:10:57 PM",
     members: [

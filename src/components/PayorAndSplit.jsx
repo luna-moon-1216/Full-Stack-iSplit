@@ -34,7 +34,7 @@ const PayorAndSplit = ({currentGroup, showPayorModal,showSplitModal, handlePayor
         <div className="modalHeader">
           <h4 className="modalTitle">Choose split options</h4>
         </div>
-        <div className="modalBody">
+        <div className="modalBody splitOptions">
           <li>equally</li>
           <li onClick={handleOptions}>by exact amount</li>
           <li onClick={handleOptions}>by percentages</li>
